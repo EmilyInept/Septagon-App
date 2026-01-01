@@ -14,6 +14,13 @@ return [
     |
     */
 
+    'bungie' => [
+        'client_id'     => env('BUNGIE_CLIENT_ID'),
+        'client_secret' => env('BUNGIE_CLIENT_SECRET'),
+        'api_key'       => env('BUNGIE_API_KEY'),
+        'redirect'      => env('BUNGIE_REDIRECT_URI'),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],

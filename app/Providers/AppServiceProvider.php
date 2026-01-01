@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Socialite\BungieProvider;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Socialite\Socialite;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Socialite::extend('bungie', function ($app) {
+            $config = $app['config']['services.bungie'];
+            return Socialite::buildProvider(BungieProvider::class, $config);
+        });
     }
 }
